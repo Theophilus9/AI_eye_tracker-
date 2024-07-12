@@ -27,6 +27,18 @@ def main():
                     screen_x = x * (screen_w/frame_w)
                     screen_y = y * (screen_h/frame_h)
                     pyautogui.moveTo(screen_x, screen_y)
+             
+            left = [landmarks[145], landmarks[159]]
+            left_click = left[0].y - left[1].y < 0.009
+
+            for landmark in left:
+                x = int(landmark.x * frame_w)
+                y = int(landmark.y * frame_h)
+                cv2.circle(frame, (x,y), 3, (0, 255, 0))
+            
+            if left_click:
+                pyautogui.click()
+                pyautogui.sleep(0.5)
 
 
         cv2.imshow('window name', frame)
