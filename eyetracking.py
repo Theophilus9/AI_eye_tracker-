@@ -29,7 +29,6 @@ def main():
                     pyautogui.moveTo(screen_x, screen_y)
 
 
-
         cv2.imshow('window name', frame)
         cv2.waitKey(1)
 
